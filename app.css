@@ -1,0 +1,67 @@
+body {
+    margin: 10px;
+    font-family: sans-serif;
+    color: #555
+}
+
+.wrapper {
+    display: block;
+    margin: 20px 0;
+}
+
+.wrapper .container {
+    border: 1px solid #111;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.wrapper .container>.title {
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px;
+    border-bottom: 1px solid #000;
+    background-color: #FFF;
+    color: #333;
+}
+
+.wrapper .container .content .field {
+    margin: 10px;
+}
+
+.wrapper .container .content .field .field-label {
+    margin: 0 0 10px 0;
+}
+
+.wrapper .container .content .field input {
+    padding: 5px 10px;
+    min-width: 100px;
+}
+
+.wrapper .container .content .field input::placeholder {
+    color: #BBB;
+}
+
+.wrapper .container .content .field button {
+    border: 1px solid #e77337;
+    background-color: #000;
+    color: #FFF;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 2px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.wrapper .container .content .field.buttons {
+    text-align: center;
+}
+
+.wrapper .container .content .field.long input {
+    width: 350px;
+}
+
+.wrapper.step .container>.title {
+    background-color: #e77337;
+    color: #FFF;
+}
