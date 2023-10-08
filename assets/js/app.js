@@ -10,7 +10,7 @@ const app = {
         document.getElementById("connect-button").addEventListener("click", app.connectAccount);
         document.getElementById("send-transaction-button").addEventListener("click", app.sendTransaction);
     },
-    initMetamaskEvents() {
+    initMetamaskEvents: function () {
         document.addEventListener('metamask-account-connected', function (e) {
             let accounts = e.detail;
 
