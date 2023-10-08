@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+
+<body>
+
+    <div id="connect-wrapper" class="wrapper step">
+        <div class="container">
+            <div class="title">
+                Step 1: Connect Wallet
+            </div>
+            <div class="content">
+                <div class="field buttons">
+                    <button id="connect-button">
+                        Connect
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="wallet-wrapper" class="wrapper" style="display:none;">
+        <div class="container">
+            <div class="title">
+                Connected Wallet
+            </div>
+            <div class="content">
+                <div class="field">
+                    <div id="wallet-address" class="field-content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="config-wrapper" class="wrapper step" style="display:none;">
+        <div class="container">
+            <div class="title">
+                Step 2: Config Etherscan & Ethereum Node
+            </div>
+            <div class="content">
+                <div id="config-form" class="form">
+                    <div class="field long">
+                        <div class="field-label">
+                            Etherscan API Key:
+                        </div>
+                        <div class="field-content">
+                            <input type="text" id="etherscan_api" name="etherscan_api"
+                                placeholder="Etherscan API Key" />
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="field-label">
+                            Ethereum Node:
+                        </div>
+                        <div class="field-content">
+                            <input type="text" id="ethereum-node" name="ethereum_node"
+                                placeholder="https://abc.quiknode.pro/" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="transaction-wrapper" class="wrapper step" style="display:none;">
+        <div class="container">
+            <div class="title">
+                Step 3: Send Transaction
+            </div>
+            <div class="content">
+                <div id="transaction-form" class="form">
+                    <div class="field long">
+                        <div class="field-label">
+                            Recipient Address:
+                        </div>
+                        <div class="field-content">
+                            <input type="text" id="recipient-address" name="recipient_address" placeholder="0xD..." />
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="field-label">
+                            Amount:
+                        </div>
+                        <div class="field-content">
+                            <input type="text" id="transaction-amount" name="transaction_amount" placeholder="0.1" />
+                        </div>
+                    </div>
+                    <div class="field">
+                        <button id="send-transaction-button">
+                            Send
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="transaction-information-wrapper" class="wrapper" style="display:none;">
+        <div class="container">
+            <div class="title">
+                Transaction Sent
+            </div>
+            <div class="content">
+                <div class="field">
+                    <div id="transaction-information" class="field-content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/utility.js"></script>
+    <script src="assets/js/metamask.js"></script>
+    <script src="assets/js/erc.js"></script>
+</body>
+
+</html>
