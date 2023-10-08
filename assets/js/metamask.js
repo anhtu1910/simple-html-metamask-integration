@@ -11,13 +11,15 @@ const metamask = {
 
         return true;
     },
-    connectAccount: function (callback) {
+    connectAccount: function () {
         ethereum
             .request({ method: "eth_requestAccounts" })
-            .then(callback)
+            .then((accounts) => document.dispatchEvent(new CustomEvent('metamask-account-connected', {
+                detail: accounts
+            })))
             .catch(metamask.onError);
     },
-    sendEthereumTransaction: function (fromAddress, recipientAddress, ethereumAmount, callback) {
+    sendEthereumTransaction: function (fromAddress, recipientAddress, ethereumAmount) {
         ethereum
             .request({
                 method: 'eth_sendTransaction',
@@ -33,14 +35,9 @@ const metamask = {
                     },
                 ],
             })
-            .then(callback)
+            .then((transactionHash) => document.dispatchEvent(new CustomEvent('metamask-transaction-sent', {
+                detail: transactionHash
+            })))
             .catch(metamask.onError);
     },
-
-}
-
-metamask.utility = {
-    toWei: function (ethereumAmount) {
-        return Number(ethereumAmount * 1e18).toString(16);
-    }
 }
