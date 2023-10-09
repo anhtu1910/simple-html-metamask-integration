@@ -28,7 +28,7 @@ const metamask = {
                     {
                         from: fromAddress, // The user's active address.
                         to: recipientAddress,
-                        value: utility.toWei(ethereumAmount),
+                        value: helper.toWei(ethereumAmount),
                         gasLimit: '0x5028', // Customizable by the user during MetaMask confirmation.
                         maxPriorityFeePerGas: '0x3b9aca00', // Customizable by the user during MetaMask confirmation.
                         maxFeePerGas: '0x2540be400', // Customizable by the user during MetaMask confirmation.
