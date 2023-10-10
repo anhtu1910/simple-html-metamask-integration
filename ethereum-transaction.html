@@ -76,9 +76,29 @@
             </div>
         </div>
     </div>
-    <script src="assets/js/app.js"></script>
-    <script src="assets/js/helper.js"></script>
+    <!-- Core JS -->
+    <script src="assets/js/settings.js"></script>
     <script src="assets/js/metamask.js"></script>
+    <script src="assets/js/services.js"></script>
+    <script src="assets/js/helper.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <!-- Boot -->
+    <script type="text/javascript">
+        window.addEventListener('load', function () {
+            let app = new App();
+            let metamask = new Metamask();
+
+            app.init({
+                accountService: new ConnectService({
+                    metamaskProvider: metamask,
+                }),
+                transactionService: new EthereumTransactionService({
+                    metamaskProvider: metamask,
+                })
+            });
+        });
+    </script>
 </body>
 
 </html>
