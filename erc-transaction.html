@@ -33,39 +33,10 @@
             </div>
         </div>
     </div>
-    <div id="config-wrapper" class="wrapper step" style="display:none;">
-        <div class="container">
-            <div class="title">
-                Step 2: Config Etherscan & Ethereum Node
-            </div>
-            <div class="content">
-                <div id="config-form" class="form">
-                    <div class="field long">
-                        <div class="field-label">
-                            Etherscan API Key:
-                        </div>
-                        <div class="field-content">
-                            <input type="text" id="etherscan_api" name="etherscan_api"
-                                placeholder="Etherscan API Key" />
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="field-label">
-                            Ethereum Node:
-                        </div>
-                        <div class="field-content">
-                            <input type="text" id="ethereum-node" name="ethereum_node"
-                                placeholder="https://abc.quiknode.pro/" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div id="transaction-wrapper" class="wrapper step" style="display:none;">
         <div class="container">
             <div class="title">
-                Step 3: Send Transaction
+                Step 2: Send Transaction
             </div>
             <div class="content">
                 <div id="transaction-form" class="form">
@@ -86,7 +57,7 @@
                         </div>
                     </div>
                     <div class="field">
-                        <button id="send-transaction-button">
+                        <button id="send-erc-transaction-button">
                             Send
                         </button>
                     </div>
@@ -106,10 +77,12 @@
             </div>
         </div>
     </div>
-    <script src="assets/js/app.js"></script>
-    <script src="assets/js/utility.js"></script>
+    <script src="assets/js/settings.js"></script>
     <script src="assets/js/metamask.js"></script>
-    <script src="assets/js/erc.js"></script>
+    <script src="assets/js/etherscan.js"></script>
+    <script src="assets/js/helper.js"></script>
+    <script src="assets/js/app.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
 </body>
 
 </html>
