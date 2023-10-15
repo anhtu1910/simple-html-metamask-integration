@@ -6,7 +6,6 @@
 </head>
 
 <body>
-
     <div id="connect-wrapper" class="wrapper step">
         <div class="container">
             <div class="title">
@@ -36,7 +35,7 @@
     <div id="transaction-wrapper" class="wrapper step" style="display:none;">
         <div class="container">
             <div class="title">
-                Step 2: Send Transaction
+                Step 2: Send ERC20 Transaction
             </div>
             <div class="content">
                 <div id="transaction-form" class="form">
@@ -57,7 +56,7 @@
                         </div>
                     </div>
                     <div class="field">
-                        <button id="send-erc-transaction-button">
+                        <button id="send-transaction-button">
                             Send
                         </button>
                     </div>
@@ -77,12 +76,34 @@
             </div>
         </div>
     </div>
+    <!-- Core JS -->
     <script src="assets/js/settings.js"></script>
     <script src="assets/js/metamask.js"></script>
-    <script src="assets/js/etherscan.js"></script>
+    <script src="assets/js/services.js"></script>
     <script src="assets/js/helper.js"></script>
-    <script src="assets/js/app.js"></script>    
+    <script src="assets/js/app.js"></script>
+
+    <!-- Libraries -->
+    <script src="assets/js/etherscan.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+
+    <!-- Boot -->
+    <script type="text/javascript">
+        window.addEventListener('load', function () {
+            let app = new App();
+            let metamask = new Metamask();
+
+            app.init({
+                accountService: new ConnectService({
+                    metamaskProvider: metamask,
+                }),
+                transactionService: new ErcTransactionService({
+                    metamaskProvider: metamask,
+                    etherscanProvider: new Etherscan(settings.etherscanApiUrl, settings.etherscanApiKey),
+                })
+            });
+        });
+    </script>
 </body>
 
 </html>

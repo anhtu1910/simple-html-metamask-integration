@@ -30,6 +30,40 @@ class EthereumTransactionService extends TransactionService {
     }
 }
 
+class ErcTransactionService extends TransactionService {
+    constructor(providers) {
+        super(providers);
+        this.etherscanProvider = providers?.etherscanProvider;
+    }
+
+    async send() {
+        let ethereumNode = settings.ethereumNode;
+        let ercTokenAddress = settings.erc20TokenAddress;
+        let address = document.getElementById('recipient-address')?.value;
+        let amount = document.getElementById('transaction-amount')?.value;
+
+        if (!ethereumNode || !ercTokenAddress) {
+            alert('Missing configurations');
+        }
+
+        if (!address || !amount) {
+            alert('Recipient Address and Amount fields are required!');
+            return;
+        }
+
+        let abi = await this.etherscanProvider.getTokenABI(ercTokenAddress);
+        if (!abi) {
+            alert('The token contract does not exist!');
+            return;
+        }
+
+        let web3 = new Web3(new Web3.providers.HttpProvider(ethereumNode));
+        let contract = new web3.eth.Contract(abi, ercTokenAddress, { from: settings.walletAddress });
+
+        this.metamaskProvider.sendErcTransaction(contract, settings.walletAddress, address, amount);
+    }
+}
+
 class ConnectService extends AccountService {
     connect() {
         if (!this.metamaskProvider.isExtensionInstalled()) {

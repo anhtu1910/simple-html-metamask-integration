@@ -5,14 +5,19 @@ class Etherscan {
     }
 
     async getTokenABI(contractAddress) {
-        let response = await helper.request.get(this.apiUrl, {
-            'module': 'contract',
-            'action': 'getabi',
-            'address': contractAddress,
-            'apikey': this.apiKey,
-        });
+        try {
+            let response = await helper.request.get(this.apiUrl, {
+                'module': 'contract',
+                'action': 'getabi',
+                'address': contractAddress,
+                'apikey': this.apiKey,
+            });
 
-        return JSON.parse(response.result);
+            return JSON.parse(response.result);
+        } catch (e) {
+            alert('Failed to get the contract ABI.');
+            console.log(e);
+        }
     }
 }
 
